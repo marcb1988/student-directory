@@ -25,8 +25,9 @@ end
 
 def print(students)
     students.each_with_index do |student, index|
-        indexplusone = index + 1
-        puts "#{indexplusone}. #{students [:name]} (#{student[:cohort]} cohort)"
+        if student[:name].length < 12
+            puts "#{index+1}. #{student[:name]} (#{student[:cohort]} cohort)"
+        end
     end
 end
 
