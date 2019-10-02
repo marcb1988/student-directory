@@ -6,13 +6,29 @@ def input_students
     students = []
     # we now need to "gets" the names
     name = gets.chomp
+    # get the hobbies
+    puts "Hobbies? "
+    hobbies = gets.chomp
+    #get the height
+    puts "Height? "
+    height = gets.chomp
+    puts "Country of Birth? "
+    cob = gets.chomp
     # while it is not empty, repeat the code
     while !name.empty? do
         # add the student to the array we created
-        students << {name: name, cohort: :november}
+        students << {name: name, cohort: :november, hobbies: hobbies, height: height, cob: cob}
         puts "Now we have #{students.count} students"
         # then get the next name
+        puts "Name? "
         name = gets.chomp
+            break if name.empty?
+        puts "Hobbies? "
+        hobbies = gets.chomp
+        puts "Height? "
+        height = gets.chomp
+        puts "Country of Birth? "
+        cob = gets.chomp
     end
     #return the array
     students
@@ -27,7 +43,7 @@ def print(students)
 
     i = 0 
     while i < students.size
-        puts "#{i+1}. #{students[i][:name]} (#{students[i][:cohort]} cohort)"
+        puts "#{i+1}. #{students[i][:name]} (#{students[i][:cohort]} cohort) (#{students[i][:hobbies]}) (#{students[i][:height]}) (#{students[i][:cob]})"
         i += 1
     end
 end
