@@ -1,57 +1,41 @@
-# we created our methods
 def input_students
-    puts "Please enter the names of the students: "
+    puts "Please enter the name of the student followed by the cohort and student age: "
     puts "To finish, just hit return twice"
-    # we then create an empty array
     students = []
-    # we now need to "gets" the names
     name = gets.chomp
-    # get the hobbies
-    puts "Hobbies? "
-    hobbies = gets.chomp
-    #get the height
-    puts "Height? "
-    height = gets.chomp
-    puts "Country of Birth? "
-    cob = gets.chomp
-    # while it is not empty, repeat the code
+    cohort = gets.chomp.to_sym
+    age = gets.chomp
+
     while !name.empty? do
-        # add the student to the array we created
-        students << {name: name, cohort: :november, hobbies: hobbies, height: height, cob: cob}
+        students << {name: name, cohort: cohort, age: age}
         puts "Now we have #{students.count} students"
-        # then get the next name
         puts "Name? "
         name = gets.chomp
             break if name.empty?
-        puts "Hobbies? "
-        hobbies = gets.chomp
-        puts "Height? "
-        height = gets.chomp
-        puts "Country of Birth? "
-        cob = gets.chomp
+        cohort = gets.chomp
+        age = gets.chomp
     end
-    #return the array
     students
 end
 
 def print_header
-    puts "The students of Villains Academy"
-    puts "---------"
+    puts "The students of Villains Academy".center(50)
+    puts "---------".center(50)
 end
 
 def print(students)
 
     i = 0 
     while i < students.size
-        puts "#{i+1}. #{students[i][:name]} (#{students[i][:cohort]} cohort) (#{students[i][:hobbies]}) (#{students[i][:height]}) (#{students[i][:cob]})"
+        puts "#{i+1}. #{students[i][:name]} (#{students[i][:cohort]} cohort) (#{students[i][:age]})".center(50)
         i += 1
     end
 end
 
 def print_footer(students)
-    puts "Overall we have #{students.count} great students."
+    puts "Overall we have #{students.count} great students.".center(50)
 end
-# then we call the methods
+
 students = input_students
 print_header
 print(students)
